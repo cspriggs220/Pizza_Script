@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Pizza</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#prepBtn').click(function() {
+            
+            //Writes text into <p id="announce"> element
+            $('#pizzaText').text("This pizza has: ");
+            //clears all html content from #order.
+            $('#results').html('');
+
+
+            $("input:checkbox:checked").each(function(){
+                
+            });//end each
+
+
+            //cycles through all members of .crust class...
+            $(".crust").each(function(index) { 
+                //if the input of given crust item is checked...
+                if ($('input#crust' + (index + 1)).is(':checked')) {
+                //append text + value as an <li> to parent element #order.
+                $('#results').append('<p>' + $(this).val() + ' Crust </p>');
+            }
+            });//end each    
+
+            $('.topping').each(function(index) {
+                if ($('input#topping' + (index + 1)).is(':checked')) {
+                    $('#results').append('<p>' + $(this).val() + '</p>');
+                }
+
+            });//end each
+
+        
+        });//end click
+    });//end ready    
+    </script>
+   
+
+    
+</head>
+<body>
+    <!-- Wrapper -->
+  <div id='wrapper'>
+    <!-- Form -->
+    <form id="pizzaform" action="#">
+        <table>
+        <tr><td>Toppings</td><td>Crust</td></tr>
+        <tr>
+        <td><input type="checkbox" id="topping1" class="topping" value="Sausage" 
+        name="toppingcheck">Sausage</td>
+        <td><input id="crust1" type="radio" class="crust" name="crust" value="Regular" 
+        checked="checked" id="radio1">Regular</td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping2" class="topping" value="Pepperoni" 
+        name="toppingcheck">Pepperoni</td>
+        <td><input id="crust2" type="radio" class="crust" name="crust" value="Deep Dish" 
+        id="radio2" />Deep Dish</td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping3" class="topping" value="Ham" 
+        name="toppingcheck">Ham</td>
+        <td><input id="crust3" type="radio" class="crust" name="crust" value="Thin" id="radio3">Thin</td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping4" class="topping" value="Green Peppers" 
+        name="toppingcheck">Green Peppers</td>
+        <td></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping5" class="topping" value="Mushrooms" 
+        name="toppingcheck">Mushrooms</td>
+        <td></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping6" class="topping" value="Onions" 
+        name="toppingcheck">Onions</td>
+        <td></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="topping7" class="topping" value="Pineapple" 
+        name="toppingcheck">Pineapple</td>
+        <td></td>
+        </tr>
+        </table>
+        <p><input type="button" id="prepBtn" name="prepBtn" value="Prep Pizza"></p>
+        <p id="pizzaText"></p>
+        <div id="results"></div>
+    </form>
+  </div>
+</body>
+</html>
