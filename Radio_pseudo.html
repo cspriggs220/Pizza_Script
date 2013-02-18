@@ -10,31 +10,17 @@
         
         $('#prepBtn').click(function() {
             
-            //Writes text into <p id="announce"> element
-            $('#pizzaText').text("This pizza has: ");
             //clears all html content from #order.
-            $('#results').html('');
+            $('#results').html('<h3>This pizza has: </h3>');
 
-
-            $("input:checkbox:checked").each(function(){
-                
+            // crust
+            $('input:radio:checked').each(function(){
+              $('#results').append('<p>' + $(this).val() + ' Crust</p>');
             });//end each
 
-
-            //cycles through all members of .crust class...
-            $(".crust").each(function(index) { 
-                //if the input of given crust item is checked...
-                if ($('input#crust' + (index + 1)).is(':checked')) {
-                //append text + value as an <li> to parent element #order.
-                $('#results').append('<p>' + $(this).val() + ' Crust </p>');
-            }
-            });//end each    
-
-            $('.topping').each(function(index) {
-                if ($('input#topping' + (index + 1)).is(':checked')) {
-                    $('#results').append('<p>' + $(this).val() + '</p>');
-                }
-
+             // toppings
+            $('input:checkbox:checked').each(function(){
+              $('#results').append('<p>' + $(this).val() + '</p>');
             });//end each
 
         
